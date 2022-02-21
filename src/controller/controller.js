@@ -39,7 +39,7 @@ exports.animeDetails = function(req, res){
 
 // Get Anime Category
 exports.animeCategory = function(req, res){
-    Anime.find(req.params.category, (error, data) => {
+    Anime.find({category: req.params.category}, (error, data) => {
     if (error) {
       return next(error)
     } else {
