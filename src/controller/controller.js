@@ -116,18 +116,6 @@ exports.userDetails = function(req, res){
 })
 };
 
-// Get User Category
-exports.userCategory = function(req, res){
-  User.findById(req.params.category, (error, data) => {
-  if (error) {
-    return next(error)
-  } else {
-    res.json(data)
-    console.log('User got category successfully!')
-  }
-})
-};
-
 // Update User
 exports.userUpdate = function(req, res, next){
   User.findByIdAndUpdate(req.params.id, {
