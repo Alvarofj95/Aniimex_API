@@ -1,4 +1,5 @@
 let Anime = require('../model/Anime');
+let User = require('../model/User');
 
 // Add Anime
 exports.animeCreate = function(req, res, next) {
@@ -74,4 +75,83 @@ exports.animeDelete = function(req, res,next){
       console.log('Anime deleted successfully!')
     }
   })
+};
+
+//
+// USERS
+//
+// Add User
+exports.userCreate = function(req, res, next) {
+  User.create(req.body, (error, data) => {
+  if (error) {
+    return next(error)
+  } else {
+    res.json(data)
+    console.log('User created successfully!')
+  }
+})
+};
+
+// Get All User
+exports.userReturn = function(req, res){
+  User.find((error, data) => {
+  if (error) {
+    return next(error)
+  } else {
+    res.json(data)
+    console.log('User got successfully!')
+  }
+})
+};
+
+// Get User Id
+exports.userDetails = function(req, res){
+  User.findById(req.params.id, (error, data) => {
+  if (error) {
+    return next(error)
+  } else {
+    res.json(data)
+    console.log('User got id successfully!')
+  }
+})
+};
+
+// Get User Category
+exports.userCategory = function(req, res){
+  User.findById(req.params.category, (error, data) => {
+  if (error) {
+    return next(error)
+  } else {
+    res.json(data)
+    console.log('User got category successfully!')
+  }
+})
+};
+
+// Update User
+exports.userUpdate = function(req, res, next){
+  User.findByIdAndUpdate(req.params.id, {
+  $set: req.body
+}, (error, data) => {
+  if (error) {
+    return next(error);
+  } else {
+    res.json(data)
+    console.log('User updated successfully!')
+  }
+})
+};
+
+// Delete User
+exports.userDelete = function(req, res,next){
+  User.findByIdAndRemove(req.params.id, (error, data) => {
+  if (error) {
+    return next(error);
+  } else {
+    res.status(200).json({
+      msg: data
+    })
+    console.log('User deleted successfully!')
+  }
+})
 };
