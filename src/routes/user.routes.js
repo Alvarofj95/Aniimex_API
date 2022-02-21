@@ -5,11 +5,11 @@ const controller = require('../controller/controller');
 // Add User
 router.post('/addUser', controller.UserCreate);
 // Get All User
-router.get('/Users', controller.UserReturn);
+router.get('/users', controller.UserReturn);
 // Get User Id
-router.get('/Users/:id', controller.UserDetails);
+router.get('/users/:id', controller.UserDetails);
 // Get User Category
-router.get('/Users/:category', controller.UserCategory);
+router.get('/users/:category', controller.UserCategory);
 // Update User
 router.put('/updateUser/:id', controller.UserUpdate);
 // Delete User
