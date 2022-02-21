@@ -10,7 +10,9 @@ router.get('/animes', controller.animeReturn);
 // Get Anime Id
 router.get('/animes/:id', controller.animeDetails);
 // Get Anime Category
-router.get('/animes/:category', controller.animeCategory);
+router.get('/animes/category/:category', (req, res) => {
+    controller.animeCategory (req, res);
+} );
 // Update Anime
 router.put('/updateAnime/:id', controller.animeUpdate);
 // Delete Anime

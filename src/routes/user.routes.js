@@ -8,8 +8,6 @@ router.post('/addUser', controller.userCreate);
 router.get('/users', controller.userReturn);
 // Get User Id
 router.get('/users/:id', controller.userDetails);
-// Get User Category
-router.get('/users/:category', controller.userCategory);
 // Update User
 router.put('/updateUser/:id', controller.userUpdate);
 // Delete User

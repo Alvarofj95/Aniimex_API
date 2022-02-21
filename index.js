@@ -14,8 +14,8 @@ error => {
 }
 )
 
-const animeRoute = require('./src/routes/anime.routes')
-const userRoute = require('./src/routes/user.routes')
+const animeRoute = require('./src/routes/anime.routes');
+const userRoute = require('./src/routes/user.routes');
 
 const app = express();
 app.use(bodyParser.json());
@@ -29,7 +29,8 @@ app.use(express.static(path.join(__dirname, 'dist/angular-mean-crud-tutorial')))
 
 
 // API root
-app.use('/api', animeRoute || userRoute);
+app.use('/api', animeRoute);
+app.use('/api', userRoute);
 
 // PORT
 const port = process.env.PORT || 8000;
